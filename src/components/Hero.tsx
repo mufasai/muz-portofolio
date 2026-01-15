@@ -5,7 +5,7 @@ import { useLanguage } from '@/context/LanguageContext';
 const Hero = () => {
   const { t } = useLanguage();
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
+    <section id="home" className="relative min-h-screen flex items-center py-20 overflow-hidden bg-background">
       {/* Animated Grid Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div
