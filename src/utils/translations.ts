@@ -1,0 +1,96 @@
+export type Language = 'id' | 'en';
+
+export const translations = {
+    id: {
+        nav: {
+            home: 'Beranda',
+            projects: 'Proyek',
+            skills: 'Keahlian',
+            contact: 'Kontak',
+            hireMe: 'Rekrut Saya',
+        },
+        hero: {
+            available: 'Tersedia untuk freelance',
+            title: 'Membangun Pengalaman',
+            digital: 'Digital',
+            description: 'Saya adalah seorang developer yang berfokus pada pembuatan web dan mobile yang interaktif serta modern.',
+            viewWork: 'Lihat Karya Saya',
+            experience: 'Tahun Pengalaman',
+        },
+        projects: {
+            featured: 'Proyek',
+            highlight: 'Unggulan',
+            description: 'Beberapa project saya sendiri yang menunjukkan keahlian saya dalam membuat karya digital.',
+            viewProject: 'Lihat Proyek',
+        },
+        skills: {
+            title: 'Keahlian &',
+            highlight: 'Teknologi',
+            description: 'Berikut adalah techstack yang saya gunakan.',
+            completedProjects: 'Proyek Selesai',
+        },
+        contact: {
+            title: 'Mari Bekerja',
+            highlight: 'Sama',
+            description: 'Punya ide proyek? Ayo diskusikan dan wujudkan ide hebat Anda.',
+            emailLabel: 'Email Saya',
+            callLabel: 'Hubungi Saya',
+            locationLabel: 'Lokasi',
+            nameLabel: 'NAMA',
+            subjectLabel: 'SUBJEK',
+            namePlaceholder: 'Nama Anda',
+            emailPlaceholder: 'Email Anda',
+            messagePlaceholder: 'Pesan Anda',
+            sendButton: 'Kirim Pesan',
+        },
+        footer: {
+            rights: 'Hak Cipta Dilindungi.',
+        },
+    },
+    en: {
+        nav: {
+            home: 'Home',
+            projects: 'Projects',
+            skills: 'Skills',
+            contact: 'Contact',
+            hireMe: 'Hire Me',
+        },
+        hero: {
+            available: 'Available for freelance',
+            title: 'Building Digital',
+            digital: 'Experiences.',
+            description: 'I am a developer focused on creating interactive and modern web and mobile applications.',
+            viewWork: 'View My Work',
+            experience: 'Years of Experience',
+        },
+        projects: {
+            featured: 'Featured',
+            highlight: 'Projects',
+            description: 'Some of my own projects that demonstrate my skills in creating digital works.',
+            viewProject: 'View Project',
+        },
+        skills: {
+            title: 'Skills &',
+            highlight: 'Technologies',
+            description: 'Here are the tech stacks I use.',
+            completedProjects: 'Completed Projects',
+        },
+        contact: {
+            title: 'Let\'s Work',
+            highlight: 'Together',
+            description: 'Have a project idea? Let\'s discuss and bring your great ideas to life.',
+            emailLabel: 'Email Me',
+            callLabel: 'Call Me',
+            locationLabel: 'Location',
+            nameLabel: 'NAME',
+            subjectLabel: 'SUBJECT',
+            namePlaceholder: 'Your Name',
+            emailPlaceholder: 'Your Email',
+            messagePlaceholder: 'Your Message',
+            sendButton: 'Send Message',
+        },
+        footer: {
+            rights: 'All Rights Reserved.',
+        },
+    },
+};
