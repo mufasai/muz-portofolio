@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+import ProjectMockup from './ProjectMockup';
 
 const projects = [
     {
@@ -9,11 +11,18 @@ const projects = [
         description: "Platform untuk melakukan tracking project atau task dengan canggih bisa melakukan kolaborasi dengan tim",
         tech: ["Next JS", "Node.js", "Tailwind", "Supabase"],
         link: "https://task-tracker.muzzie.my.id/",
+        mockupType: "laptop" as const,
     },
-
+    {
+        title: "MUZ AI - Intelligent Chat & Code Generator",
+        category: "Web Application",
+        image: "/ai.png",
+        description: "Platform AI-powered berbasis web yang menggabungkan chat interface dengan code generation capabilities.",
+        tech: ["ReactJS", "ExpressJS", "Tailwind"],
+        link: "https://ai.muzzie.my.id",
+        mockupType: "laptop" as const,
+    },
 ];
-
-import { useLanguage } from '@/context/LanguageContext';
 
 const Projects = () => {
     const { t } = useLanguage();
@@ -44,11 +53,11 @@ const Projects = () => {
                             viewport={{ once: true }}
                             className="group bg-card rounded-3xl overflow-hidden border border-border hover:border-orange-500/30 transition-all duration-500"
                         >
-                            <div className="relative h-64 overflow-hidden">
-                                <img
-                                    src={project.image}
+                            <div className="relative h-64 overflow-hidden bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center p-4">
+                                <ProjectMockup
+                                    image={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                    type={project.mockupType}
                                 />
                                 {/* Overlay gradient + buttons */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">

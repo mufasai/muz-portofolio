@@ -1,0 +1,28 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" rx="128" fill="#1a2332"/>
+  
+  <!-- Z Letter with 3D effect -->
+  <g>
+    <!-- Top bar - main -->
+    <path d="M90 75 L422 75 L422 165 L180 165 L90 75Z" fill="#f97316"/>
+    <!-- Top bar - highlight -->
+    <path d="M90 75 L180 165 L180 120 L135 75 L90 75Z" fill="#fb923c"/>
+    <!-- Top bar - shadow -->
+    <path d="M422 75 L422 165 L377 120 L377 75 L422 75Z" fill="#ea580c"/>
+    
+    <!-- Diagonal bar - main -->
+    <path d="M180 165 L422 165 L332 437 L90 437 L180 165Z" fill="#f97316"/>
+    <!-- Diagonal bar - highlight -->
+    <path d="M180 165 L90 437 L135 392 L180 165Z" fill="#fb923c"/>
+    <!-- Diagonal bar - shadow -->
+    <path d="M422 165 L332 437 L377 392 L422 165Z" fill="#ea580c"/>
+    
+    <!-- Bottom bar - main -->
+    <path d="M90 437 L332 437 L422 347 L180 347 L90 437Z" fill="#f97316"/>
+    <!-- Bottom bar - highlight -->
+    <path d="M90 437 L180 347 L180 392 L135 437 L90 437Z" fill="#fb923c"/>
+    <!-- Bottom bar - shadow -->
+    <path d="M332 437 L422 347 L377 347 L332 392 L332 437Z" fill="#ea580c"/>
+  </g>
+</svg>
