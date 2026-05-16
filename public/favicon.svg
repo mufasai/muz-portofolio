@@ -1,28 +1,14 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="512" height="512" rx="128" fill="#1a2332"/>
+  <!-- Background with gradient -->
+  <rect width="512" height="512" rx="128" fill="url(#grad)"/>
   
-  <!-- Z Letter with 3D effect -->
-  <g>
-    <!-- Top bar - main -->
-    <path d="M90 75 L422 75 L422 165 L180 165 L90 75Z" fill="#f97316"/>
-    <!-- Top bar - highlight -->
-    <path d="M90 75 L180 165 L180 120 L135 75 L90 75Z" fill="#fb923c"/>
-    <!-- Top bar - shadow -->
-    <path d="M422 75 L422 165 L377 120 L377 75 L422 75Z" fill="#ea580c"/>
-    
-    <!-- Diagonal bar - main -->
-    <path d="M180 165 L422 165 L332 437 L90 437 L180 165Z" fill="#f97316"/>
-    <!-- Diagonal bar - highlight -->
-    <path d="M180 165 L90 437 L135 392 L180 165Z" fill="#fb923c"/>
-    <!-- Diagonal bar - shadow -->
-    <path d="M422 165 L332 437 L377 392 L422 165Z" fill="#ea580c"/>
-    
-    <!-- Bottom bar - main -->
-    <path d="M90 437 L332 437 L422 347 L180 347 L90 437Z" fill="#f97316"/>
-    <!-- Bottom bar - highlight -->
-    <path d="M90 437 L180 347 L180 392 L135 437 L90 437Z" fill="#fb923c"/>
-    <!-- Bottom bar - shadow -->
-    <path d="M332 437 L422 347 L377 347 L332 392 L332 437Z" fill="#ea580c"/>
-  </g>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Letter M -->
+  <text x="256" y="380" font-family="Arial, sans-serif" font-size="320" font-weight="bold" fill="#f97316" text-anchor="middle">M</text>
 </svg>

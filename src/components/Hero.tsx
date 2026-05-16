@@ -1,48 +1,55 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { GridPattern } from "@/components/ui/grid-pattern"
+import { cn } from '@/lib/utils';
 
 const Hero = () => {
   const { t } = useLanguage();
   return (
     <section id="home" className="relative min-h-screen flex items-center py-20 overflow-hidden bg-background">
-      {/* Animated Grid Background */}
+      {/* Magic UI Grid Pattern Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `linear-gradient(hsl(var(--muted-foreground) / 0.1) 1px, transparent 1px),
-                              linear-gradient(90deg, hsl(var(--muted-foreground) / 0.1) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px',
-          }}
+        <GridPattern
+          width={60}
+          height={60}
+          x={-1}
+          y={-1}
+          strokeDasharray={"8 4"}
+          className={cn(
+            "[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]",
+            "opacity-30"
+          )}
         />
+
         {/* Animated gradient overlay moving across grid */}
         <motion.div
-          className="absolute inset-0"
+          className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'radial-gradient(circle 400px at var(--x, 50%) var(--y, 50%), rgba(249, 115, 22, 0.15), transparent 70%)',
+            background: 'radial-gradient(circle 500px at var(--x, 50%) var(--y, 50%), rgba(249, 115, 22, 0.12), transparent 70%)',
           }}
           animate={{
             '--x': ['20%', '80%', '50%', '20%'],
             '--y': ['20%', '50%', '80%', '20%'],
           } as any}
           transition={{
-            duration: 15,
+            duration: 20,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
         />
+
         {/* Floating grid dots */}
-        {[...Array(20)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-orange-500/40 rounded-full"
+            className="absolute w-1.5 h-1.5 bg-orange-500/50 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              opacity: [0.2, 0.8, 0.2],
+              opacity: [0.3, 0.8, 0.3],
               scale: [1, 1.5, 1],
             }}
             transition={{
@@ -55,7 +62,7 @@ const Hero = () => {
       </div>
 
       {/* Background Orbs */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-600/20 rounded-full blur-[120px] animate-pulse" />
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-600/15 rounded-full blur-[120px] animate-pulse" />
       <div
         className="absolute bottom-1/4 -right-20 w-96 h-96 bg-orange-900/10 rounded-full blur-[120px] animate-pulse"
         style={{ animationDelay: '2s' }}
