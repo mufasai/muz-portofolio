@@ -20,9 +20,41 @@ export const translations = {
         },
         projects: {
             featured: 'Proyek',
-            highlight: 'Unggulan',
+            highlight: 'Pribadi',
             description: 'Beberapa project saya sendiri yang menunjukkan keahlian saya dalam membuat karya digital.',
             viewProject: 'Lihat Proyek',
+            projectsLabel: 'Proyek',
+            items: [
+                {
+                    title: "BahLink - UMKM Financial Tracking & AI Insight",
+                    category: "Mobile Application",
+                    image: "/bahlink_mockup.png",
+                    description: "Aplikasi mobile pelacak keuangan & omzet UMKM dengan pencatatan transaksi cerdas, pantauan arus kas berbasis AI, dan evaluasi kesehatan finansial BahScore.",
+                    tech: ["React Native", "Tailwind CSS", "TypeScript", "AI Analytics"],
+                    link: "",
+                    mockupType: "cover",
+                    screens: ["/bahlink_expense.png", "/bahlink_dashboard.png", "/bahlink_score.png"],
+                    screenTitles: ["Tren Pengeluaran", "Dashboard & Aksi Cepat", "BahScore & AI Insight"]
+                },
+                {
+                    title: "Tudoo Task Tracker",
+                    category: "Web Application",
+                    image: "/task.png",
+                    description: "Platform untuk melakukan tracking project atau task dengan canggih bisa melakukan kolaborasi dengan tim.",
+                    tech: ["Next JS", "Node.js", "Tailwind", "Supabase"],
+                    link: "https://task-tracker.muzzie.my.id/",
+                    mockupType: "laptop"
+                },
+                {
+                    title: "MUZ AI - Intelligent Chat & Code Generator",
+                    category: "Web Application",
+                    image: "/ai.png",
+                    description: "Platform AI-powered berbasis web yang menggabungkan chat interface dengan code generation capabilities.",
+                    tech: ["ReactJS", "ExpressJS", "Tailwind"],
+                    link: "https://ai.muzzie.my.id",
+                    mockupType: "laptop"
+                }
+            ]
         },
         skills: {
             title: 'Keahlian &',
@@ -63,6 +95,7 @@ export const translations = {
             title: 'Kegiatan &',
             highlight: 'Dokumentasi',
             description: 'Kumpulan kegiatan, perlombaan, dan sertifikasi yang saya ikuti dalam perjalanan profesional saya.',
+            readArticle: 'Baca Artikel',
             categories: {
                 all: 'Semua',
                 competition: 'Lomba',
@@ -71,25 +104,38 @@ export const translations = {
             },
             items: [
                 {
-                    title: 'Juara 1 Web Development Competition',
+                    title: 'Hackathon Bank Indonesia',
                     category: 'competition',
-                    date: 'Okt 2024',
-                    description: 'Memenangkan juara pertama dalam kategori Best Innovation dengan membangun platform kolaboratif berbasis AI.',
-                    image: '/activity_lomba.png'
+                    date: 'Agustus 2026',
+                    description: 'Meraih Juara 2 dalam Mini Hackathon yang diselenggarakan oleh Bank Indonesia Purwokerto sebagai bagian dari Pekan QRIS Nasional 2026 dengan mengembangkan "Bahlink", sebuah aplikasi mobile untuk mempermudah pelacakan keuangan pelaku usaha UMKM.',
+                    image: '/kejuaran_BI.JPG',
+                    objectPosition: 'center 58%'
                 },
                 {
-                    title: 'Narasumber di Tech Forum 2024',
+                    title: 'Indonesian Essay of Accounting Competition (INESCO)',
+                    category: 'competition',
+                    date: 'Maret 2025',
+                    description: 'Meraih Juara 3 dalam kompetisi esai tingkat nasional INESCO UMP 2025. Mengembangkan ide aplikasi "Eco Nyong", platform digital inovatif pengolah limbah tekstil dan pakaian bekas berbasis kearifan lokal Banyumas.',
+                    image: '/inesco.png',
+                    objectPosition: 'center',
+                    link: 'https://purwokerto.telkomuniversity.ac.id/mahasiswa-telkom-university-purwokerto-menjuarai-lomba-essay-dengan-aplikasi-atasi-limbah-textil/'
+                },
+                {
+                    title: 'Pembicara di SMK Telkom Purwokerto',
                     category: 'seminar',
-                    date: 'Mar 2025',
-                    description: 'Menjadi pembicara dan membagikan materi mengenai praktik terbaik pengembangan frontend menggunakan modern React dan Tailwind.',
-                    image: '/activity_seminar.png'
+                    date: 'Juli 2025',
+                    description: 'Menjadi pembicara mengenai lanskap industri IT, tren tech stack yang digunakan di dunia kerja, serta memberi arahan dan motivasi kepada para siswa untuk mengejar passion serta kata hati mereka.',
+                    image: '/speaker_smk_telkom_clean.jpg',
+                    video: '/40d3aaaf-8b52-46c0-8e4a-6007bffade68.MP4',
+                    objectPosition: 'center 40%'
                 },
                 {
-                    title: 'Professional Developer Certification',
+                    title: 'Microsoft Certified: Azure AI Fundamentals',
                     category: 'certification',
-                    date: 'Mei 2025',
-                    description: 'Sertifikasi resmi untuk keahlian rekayasa perangkat lunak tingkat lanjut.',
-                    image: '/activity_sertifikasi.png'
+                    date: 'Maret 2026',
+                    description: 'Sertifikasi resmi dari Microsoft yang memvalidasi pemahaman dasar tentang konsep kecerdasan buatan (AI) dan machine learning serta layanan Microsoft Azure.',
+                    image: '/azure_ai_fundamental.png',
+                    objectPosition: 'center 15%'
                 }
             ]
         },
@@ -129,10 +175,42 @@ export const translations = {
             experience: 'Years of Experience',
         },
         projects: {
-            featured: 'Featured',
+            featured: 'Personal',
             highlight: 'Projects',
             description: 'Some of my own projects that demonstrate my skills in creating digital works.',
             viewProject: 'View Project',
+            projectsLabel: 'Projects',
+            items: [
+                {
+                    title: "BahLink - UMKM Financial Tracking & AI Insight",
+                    category: "Mobile Application",
+                    image: "/bahlink_mockup.png",
+                    description: "Smart mobile financial tracking app for MSMEs featuring instant transaction logging, AI-driven cash flow insights, and BahScore financial health evaluation.",
+                    tech: ["React Native", "Tailwind CSS", "TypeScript", "AI Analytics"],
+                    link: "",
+                    mockupType: "cover",
+                    screens: ["/bahlink_expense.png", "/bahlink_dashboard.png", "/bahlink_score.png"],
+                    screenTitles: ["Expense Trend", "Dashboard & Quick Actions", "BahScore & AI Insight"]
+                },
+                {
+                    title: "Tudoo Task Tracker",
+                    category: "Web Application",
+                    image: "/task.png",
+                    description: "A powerful platform for project and task tracking with seamless real-time team collaboration.",
+                    tech: ["Next JS", "Node.js", "Tailwind", "Supabase"],
+                    link: "https://task-tracker.muzzie.my.id/",
+                    mockupType: "laptop"
+                },
+                {
+                    title: "MUZ AI - Intelligent Chat & Code Generator",
+                    category: "Web Application",
+                    image: "/ai.png",
+                    description: "Web-based AI platform integrating an intuitive conversational chat interface with intelligent code generation capabilities.",
+                    tech: ["ReactJS", "ExpressJS", "Tailwind"],
+                    link: "https://ai.muzzie.my.id",
+                    mockupType: "laptop"
+                }
+            ]
         },
         skills: {
             title: 'Skills &',
@@ -173,6 +251,7 @@ export const translations = {
             title: 'Activities &',
             highlight: 'Documentation',
             description: 'A collection of activities, competitions, and certifications I have participated in during my professional journey.',
+            readArticle: 'Read Article',
             categories: {
                 all: 'All',
                 competition: 'Competition',
@@ -181,25 +260,38 @@ export const translations = {
             },
             items: [
                 {
-                    title: '1st Place Web Development Competition',
+                    title: 'Hackathon Bank Indonesia',
                     category: 'competition',
-                    date: 'Oct 2024',
-                    description: 'Won first place in the Best Innovation category by building an AI-powered collaborative platform.',
-                    image: '/activity_lomba.png'
+                    date: 'August 2026',
+                    description: 'Achieved 2nd Place in the Mini Hackathon organized by Bank Indonesia Purwokerto as part of the National QRIS Week (Pekan QRIS Nasional) 2026 by developing "Bahlink", a mobile application designed for financial tracking of MSME businesses.',
+                    image: '/kejuaran_BI.JPG',
+                    objectPosition: 'center 58%'
                 },
                 {
-                    title: 'Speaker at Tech Forum 2024',
+                    title: 'Indonesian Essay of Accounting Competition (INESCO)',
+                    category: 'competition',
+                    date: 'March 2025',
+                    description: 'Achieved 3rd Place in the national essay competition INESCO UMP 2025. Developed the "Eco Nyong" app concept, a digital platform for textile and fashion waste management merging environmental care and Banyumas local wisdom.',
+                    image: '/inesco.png',
+                    objectPosition: 'center',
+                    link: 'https://purwokerto.telkomuniversity.ac.id/mahasiswa-telkom-university-purwokerto-menjuarai-lomba-essay-dengan-aplikasi-atasi-limbah-textil/'
+                },
+                {
+                    title: 'Speaker at SMK Telkom Purwokerto',
                     category: 'seminar',
-                    date: 'Mar 2025',
-                    description: 'Spoke and shared materials on frontend development best practices using modern React and Tailwind.',
-                    image: '/activity_seminar.png'
+                    date: 'July 2025',
+                    description: 'Guest speaker discussing the IT industry landscape, relevant tech stacks used in the professional world, and inspiring students to pursue their passion and true calling in tech.',
+                    image: '/speaker_smk_telkom_clean.jpg',
+                    video: '/40d3aaaf-8b52-46c0-8e4a-6007bffade68.MP4',
+                    objectPosition: 'center 40%'
                 },
                 {
-                    title: 'Professional Developer Certification',
+                    title: 'Microsoft Certified: Azure AI Fundamentals',
                     category: 'certification',
-                    date: 'May 2025',
-                    description: 'Official certification verifying advanced software engineering capabilities.',
-                    image: '/activity_sertifikasi.png'
+                    date: 'March 2026',
+                    description: 'Official Microsoft certification validating foundational knowledge of machine learning, AI concepts, and related Microsoft Azure services.',
+                    image: '/azure_ai_fundamental.png',
+                    objectPosition: 'center 15%'
                 }
             ]
         },

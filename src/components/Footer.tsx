@@ -1,10 +1,11 @@
 import { Github, Linkedin } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { t } = useLanguage();
   return (
-    <footer className="py-12 bg-secondary border-t border-border">
+    <footer className="py-12 bg-background border-t border-border">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div>
@@ -30,8 +31,8 @@ const Footer = () => {
           </div>
 
           <div className="flex gap-8 text-sm text-zinc-500">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

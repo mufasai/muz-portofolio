@@ -1,10 +1,21 @@
 interface ProjectMockupProps {
     image: string;
     alt: string;
-    type?: 'laptop' | 'desktop' | 'mobile';
+    type?: 'laptop' | 'desktop' | 'mobile' | 'cover' | 'mockup';
 }
 
 const ProjectMockup = ({ image, alt, type = 'laptop' }: ProjectMockupProps) => {
+    if (type === 'cover' || type === 'mockup') {
+        return (
+            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl flex items-center justify-center">
+                <img
+                    src={image}
+                    alt={alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+            </div>
+        );
+    }
     if (type === 'mobile') {
         return (
             <div className="relative mx-auto w-[280px] h-full">

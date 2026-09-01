@@ -135,38 +135,23 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, y: [0, -8, 0] }}
-            transition={{
-              opacity: { delay: 0.2 },
-              y: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-            }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="inline-block py-1 px-3 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-xs font-bold uppercase tracking-widest mb-6"
           >
             {t.hero.available}
           </motion.span>
 
-          <motion.h1
-            className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-foreground"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          >
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-foreground">
             <SequentialTypewriter text1={t.hero.title} text2={t.hero.digital} />
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            className="text-muted-foreground text-lg md:text-xl mb-10 max-w-lg leading-relaxed"
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          >
+          <p className="text-muted-foreground text-lg md:text-xl mb-10 max-w-lg leading-relaxed">
             {t.hero.description}
-          </motion.p>
+          </p>
 
-          <motion.div
-            className="flex flex-wrap gap-4 mb-12"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          >
+          <div className="flex flex-wrap gap-4 mb-12">
             <div className="flex items-center gap-4 px-4">
               {[
                 { Icon: GithubIcon, href: "https://github.com/mufasai" },
@@ -176,64 +161,47 @@ const Hero = () => {
                   key={i}
                   href={href}
                   className="p-3 text-muted-foreground hover:text-orange-500 hover:bg-orange-500/5 rounded-xl transition-all"
-                  whileHover={{ y: -5, scale: 1.1 }}
+                  whileHover={{ y: -3, scale: 1.1 }}
                   transition={{ duration: 0.2 }}
                 >
                   <Icon size={22} />
                 </motion.a>
               ))}
             </div>
-          </motion.div>
+          </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0, y: [0, -12, 0] }}
-          transition={{
-            opacity: { duration: 1, ease: "easeOut" },
-            scale: { duration: 1, ease: "easeOut" },
-            rotate: { duration: 1, ease: "easeOut" },
-            y: { duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }
-          }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative flex justify-center"
         >
           {/* Decorative frames */}
           <div className="relative w-72 h-72 md:w-96 md:h-96">
-            <motion.div
+            <div
               className="absolute inset-0 bg-gradient-to-tr from-orange-500 to-orange-300 rounded-[40px] rotate-6 scale-105 opacity-20 blur-sm"
-              animate={{ rotate: [6, 8, 6] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.div
+            <div
               className="absolute inset-0 border-2 border-orange-500/30 rounded-[40px] -rotate-3"
-              animate={{ rotate: [-3, -5, -3] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
 
-            <motion.img
+            <img
               src="/hero.jpeg"
               alt="Profile Avatar"
               className="relative z-10 w-full h-full object-cover rounded-[40px] transition-all duration-500 shadow-2xl"
-              animate={{ scale: [1, 1.02, 1] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
 
-          {/* Floating Badge */}
+          {/* Experience Badge */}
           <motion.div
-            animate={{ y: [0, -15, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -bottom-6 -right-6 z-20 bg-card border border-border p-4 rounded-2xl shadow-xl backdrop-blur-xl"
             whileHover={{ scale: 1.05 }}
           >
             <div className="flex items-center gap-3">
-              <motion.div
-                className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center font-bold text-white"
-                animate={{ rotate: [0, 5, 0, -5, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              >
+              <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center font-bold text-white">
                 1+
-              </motion.div>
+              </div>
               <div className="text-xs">
                 <p className="font-bold text-foreground">{t.hero.experience}</p>
                 <p className="text-muted-foreground">Experience</p>
