@@ -1,13 +1,97 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { GridPattern } from "@/components/ui/grid-pattern"
 import { cn } from '@/lib/utils';
+import VideoBackground from './VideoBackground';
+
+interface SequentialTypewriterProps {
+  text1: string;
+  text2: string;
+  delay?: number;
+}
+
+const SequentialTypewriter = ({ text1, text2, delay = 75 }: SequentialTypewriterProps) => {
+  const [part1, setPart1] = useState('');
+  const [part2, setPart2] = useState('');
+  const [isPart1Finished, setIsPart1Finished] = useState(false);
+  const [showCursorPart1, setShowCursorPart1] = useState(true);
+  const [showCursorPart2, setShowCursorPart2] = useState(false);
+
+  useEffect(() => {
+    setPart1('');
+    setPart2('');
+    setIsPart1Finished(false);
+    setShowCursorPart1(true);
+    setShowCursorPart2(false);
+
+    let idx1 = 0;
+    let idx2 = 0;
+    let timer2: any = null;
+
+    const timer1 = setInterval(() => {
+      if (idx1 < text1.length) {
+        const char = text1.charAt(idx1);
+        setPart1((prev) => prev + char);
+        idx1++;
+      } else {
+        clearInterval(timer1);
+        setShowCursorPart1(false);
+        setIsPart1Finished(true);
+        setShowCursorPart2(true);
+        
+        timer2 = setInterval(() => {
+          if (idx2 < text2.length) {
+            const char = text2.charAt(idx2);
+            setPart2((prev) => prev + char);
+            idx2++;
+          } else {
+            clearInterval(timer2);
+          }
+        }, delay);
+      }
+    }, delay);
+
+    return () => {
+      clearInterval(timer1);
+      if (timer2) clearInterval(timer2);
+    };
+  }, [text1, text2, delay]);
+
+  return (
+    <span className="relative inline-block min-h-[5.5rem] md:min-h-[9rem]">
+      <span>
+        {part1}
+        {showCursorPart1 && (
+          <span className="animate-pulse border-r-4 border-orange-500 ml-1.5 h-[0.8em] inline-block align-middle">&nbsp;</span>
+        )}
+      </span>
+      {isPart1Finished && (
+        <>
+          <br />
+          <span className="text-gradient">
+            {part2}
+            {showCursorPart2 && (
+              <span className="animate-pulse border-r-4 border-orange-500 ml-1.5 h-[0.8em] inline-block align-middle">&nbsp;</span>
+            )}
+          </span>
+        </>
+      )}
+    </span>
+  );
+};
 
 const Hero = () => {
   const { t } = useLanguage();
   return (
     <section id="home" className="relative min-h-screen flex items-center py-20 overflow-hidden bg-background">
+      {/* Video Background */}
+      <VideoBackground
+        src="/gradient_bg_xfade2.mp4"
+        opacity={0.4}
+      />
+
       {/* Magic UI Grid Pattern Background */}
       <div className="absolute inset-0 overflow-hidden">
         <GridPattern
@@ -18,29 +102,12 @@ const Hero = () => {
           strokeDasharray={"8 4"}
           className={cn(
             "[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]",
-            "opacity-30"
+            "opacity-20"
           )}
         />
 
-        {/* Animated gradient overlay moving across grid */}
-        <motion.div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle 500px at var(--x, 50%) var(--y, 50%), rgba(249, 115, 22, 0.12), transparent 70%)',
-          }}
-          animate={{
-            '--x': ['20%', '80%', '50%', '20%'],
-            '--y': ['20%', '50%', '80%', '20%'],
-          } as any}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-
         {/* Floating grid dots */}
-        {[...Array(15)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1.5 h-1.5 bg-orange-500/50 rounded-full"
@@ -61,13 +128,6 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Background Orbs */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-600/15 rounded-full blur-[120px] animate-pulse" />
-      <div
-        className="absolute bottom-1/4 -right-20 w-96 h-96 bg-orange-900/10 rounded-full blur-[120px] animate-pulse"
-        style={{ animationDelay: '2s' }}
-      />
-
       <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -76,67 +136,104 @@ const Hero = () => {
         >
           <motion.span
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
+            animate={{ opacity: 1, y: [0, -8, 0] }}
+            transition={{
+              opacity: { delay: 0.2 },
+              y: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+            }}
             className="inline-block py-1 px-3 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-xs font-bold uppercase tracking-widest mb-6"
           >
             {t.hero.available}
           </motion.span>
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-foreground">
-            {t.hero.title} <br />
-            <span className="text-gradient">{t.hero.digital}</span>
-          </h1>
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-foreground"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <SequentialTypewriter text1={t.hero.title} text2={t.hero.digital} />
+          </motion.h1>
 
-          <p className="text-muted-foreground text-lg md:text-xl mb-10 max-w-lg leading-relaxed">
+          <motion.p
+            className="text-muted-foreground text-lg md:text-xl mb-10 max-w-lg leading-relaxed"
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          >
             {t.hero.description}
-          </p>
+          </motion.p>
 
-          <div className="flex flex-wrap gap-4 mb-12">
-
+          <motion.div
+            className="flex flex-wrap gap-4 mb-12"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          >
             <div className="flex items-center gap-4 px-4">
               {[
-                { Icon: Github, href: "https://github.com/mufasai" },
-                { Icon: Linkedin, href: "https://www.linkedin.com/in/musyafa-fadila/" },
+                { Icon: GithubIcon, href: "https://github.com/mufasai" },
+                { Icon: LinkedinIcon, href: "https://www.linkedin.com/in/musyafa-fadila/" },
               ].map(({ Icon, href }, i) => (
-                <a
+                <motion.a
                   key={i}
                   href={href}
                   className="p-3 text-muted-foreground hover:text-orange-500 hover:bg-orange-500/5 rounded-xl transition-all"
+                  whileHover={{ y: -5, scale: 1.1 }}
+                  transition={{ duration: 0.2 }}
                 >
                   <Icon size={22} />
-                </a>
+                </motion.a>
               ))}
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          animate={{ opacity: 1, scale: 1, rotate: 0, y: [0, -12, 0] }}
+          transition={{
+            opacity: { duration: 1, ease: "easeOut" },
+            scale: { duration: 1, ease: "easeOut" },
+            rotate: { duration: 1, ease: "easeOut" },
+            y: { duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }
+          }}
           className="relative flex justify-center"
         >
           {/* Decorative frames */}
           <div className="relative w-72 h-72 md:w-96 md:h-96">
-            <div className="absolute inset-0 bg-gradient-to-tr from-orange-500 to-orange-300 rounded-[40px] rotate-6 scale-105 opacity-20 blur-sm" />
-            <div className="absolute inset-0 border-2 border-orange-500/30 rounded-[40px] -rotate-3" />
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-tr from-orange-500 to-orange-300 rounded-[40px] rotate-6 scale-105 opacity-20 blur-sm"
+              animate={{ rotate: [6, 8, 6] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="absolute inset-0 border-2 border-orange-500/30 rounded-[40px] -rotate-3"
+              animate={{ rotate: [-3, -5, -3] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            />
 
-            <img
+            <motion.img
               src="/hero.jpeg"
               alt="Profile Avatar"
               className="relative z-10 w-full h-full object-cover rounded-[40px] transition-all duration-500 shadow-2xl"
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
 
           {/* Floating Badge */}
           <motion.div
             animate={{ y: [0, -15, 0] }}
-            transition={{ duration: 4, repeat: Infinity }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -bottom-6 -right-6 z-20 bg-card border border-border p-4 rounded-2xl shadow-xl backdrop-blur-xl"
+            whileHover={{ scale: 1.05 }}
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center font-bold text-white">1+</div>
+              <motion.div
+                className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center font-bold text-white"
+                animate={{ rotate: [0, 5, 0, -5, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                1+
+              </motion.div>
               <div className="text-xs">
                 <p className="font-bold text-foreground">{t.hero.experience}</p>
                 <p className="text-muted-foreground">Experience</p>

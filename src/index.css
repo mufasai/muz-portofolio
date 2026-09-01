@@ -53,6 +53,14 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+
   * {
     @apply border-border selection:bg-orange-500/30 selection:text-orange-200;
   }

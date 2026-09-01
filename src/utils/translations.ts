@@ -6,6 +6,7 @@ export const translations = {
             home: 'Beranda',
             projects: 'Proyek',
             skills: 'Keahlian',
+            activities: 'Kegiatan',
             contact: 'Kontak',
             hireMe: 'Rekrut Saya',
         },
@@ -58,6 +59,40 @@ export const translations = {
                 },
             ],
         },
+        activities: {
+            title: 'Kegiatan &',
+            highlight: 'Dokumentasi',
+            description: 'Kumpulan kegiatan, perlombaan, dan sertifikasi yang saya ikuti dalam perjalanan profesional saya.',
+            categories: {
+                all: 'Semua',
+                competition: 'Lomba',
+                seminar: 'Seminar & Workshop',
+                certification: 'Sertifikasi',
+            },
+            items: [
+                {
+                    title: 'Juara 1 Web Development Competition',
+                    category: 'competition',
+                    date: 'Okt 2024',
+                    description: 'Memenangkan juara pertama dalam kategori Best Innovation dengan membangun platform kolaboratif berbasis AI.',
+                    image: '/activity_lomba.png'
+                },
+                {
+                    title: 'Narasumber di Tech Forum 2024',
+                    category: 'seminar',
+                    date: 'Mar 2025',
+                    description: 'Menjadi pembicara dan membagikan materi mengenai praktik terbaik pengembangan frontend menggunakan modern React dan Tailwind.',
+                    image: '/activity_seminar.png'
+                },
+                {
+                    title: 'Professional Developer Certification',
+                    category: 'certification',
+                    date: 'Mei 2025',
+                    description: 'Sertifikasi resmi untuk keahlian rekayasa perangkat lunak tingkat lanjut.',
+                    image: '/activity_sertifikasi.png'
+                }
+            ]
+        },
         contact: {
             title: 'Mari Bekerja',
             highlight: 'Sama',
@@ -81,6 +116,7 @@ export const translations = {
             home: 'Home',
             projects: 'Projects',
             skills: 'Skills',
+            activities: 'Activities',
             contact: 'Contact',
             hireMe: 'Hire Me',
         },
@@ -132,6 +168,40 @@ export const translations = {
                     ],
                 },
             ],
+        },
+        activities: {
+            title: 'Activities &',
+            highlight: 'Documentation',
+            description: 'A collection of activities, competitions, and certifications I have participated in during my professional journey.',
+            categories: {
+                all: 'All',
+                competition: 'Competition',
+                seminar: 'Seminar & Workshop',
+                certification: 'Certification',
+            },
+            items: [
+                {
+                    title: '1st Place Web Development Competition',
+                    category: 'competition',
+                    date: 'Oct 2024',
+                    description: 'Won first place in the Best Innovation category by building an AI-powered collaborative platform.',
+                    image: '/activity_lomba.png'
+                },
+                {
+                    title: 'Speaker at Tech Forum 2024',
+                    category: 'seminar',
+                    date: 'Mar 2025',
+                    description: 'Spoke and shared materials on frontend development best practices using modern React and Tailwind.',
+                    image: '/activity_seminar.png'
+                },
+                {
+                    title: 'Professional Developer Certification',
+                    category: 'certification',
+                    date: 'May 2025',
+                    description: 'Official certification verifying advanced software engineering capabilities.',
+                    image: '/activity_sertifikasi.png'
+                }
+            ]
         },
         contact: {
             title: 'Let\'s Work',
