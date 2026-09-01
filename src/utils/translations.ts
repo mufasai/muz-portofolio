@@ -39,11 +39,14 @@ export const translations = {
                 {
                     title: "Tudoo Task Tracker",
                     category: "Web Application",
-                    image: "/task.png",
-                    description: "Platform untuk melakukan tracking project atau task dengan canggih bisa melakukan kolaborasi dengan tim.",
+                    image: "/tudoo_mockup.png",
+                    description: "Platform cerdas untuk tracking proyek dan tugas secara modern, dilengkapi visualisasi Kanban board, kalender jadwal, dan kolaborasi tim real-time.",
                     tech: ["Next JS", "Node.js", "Tailwind", "Supabase"],
                     link: "https://task-tracker.muzzie.my.id/",
-                    mockupType: "laptop"
+                    mockupType: "cover",
+                    screenType: "web",
+                    screens: ["/tudoo_dashboard.png", "/tudoo_kanban.png", "/tudoo_calendar.png"],
+                    screenTitles: ["Dashboard Utama", "Kanban Task Board", "Kalender Jadwal"]
                 },
                 {
                     title: "MUZ AI - Intelligent Chat & Code Generator",
@@ -195,11 +198,14 @@ export const translations = {
                 {
                     title: "Tudoo Task Tracker",
                     category: "Web Application",
-                    image: "/task.png",
-                    description: "A powerful platform for project and task tracking with seamless real-time team collaboration.",
+                    image: "/tudoo_mockup.png",
+                    description: "Modern web platform for task and project management, featuring visual Kanban boards, calendar scheduling, and real-time team collaboration.",
                     tech: ["Next JS", "Node.js", "Tailwind", "Supabase"],
                     link: "https://task-tracker.muzzie.my.id/",
-                    mockupType: "laptop"
+                    mockupType: "cover",
+                    screenType: "web",
+                    screens: ["/tudoo_dashboard.png", "/tudoo_kanban.png", "/tudoo_calendar.png"],
+                    screenTitles: ["Dashboard Overview", "Kanban Task Board", "Calendar Schedule"]
                 },
                 {
                     title: "MUZ AI - Intelligent Chat & Code Generator",

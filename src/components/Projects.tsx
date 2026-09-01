@@ -4,6 +4,7 @@ import { ExternalLink, Eye, X } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import ProjectMockup from './ProjectMockup';
 import MultiPhoneMockup from './MultiPhoneMockup';
+import MultiWebMockup from './MultiWebMockup';
 
 interface ProjectItem {
     title: string;
@@ -13,6 +14,7 @@ interface ProjectItem {
     tech: string[];
     link?: string;
     mockupType?: string;
+    screenType?: 'web' | 'mobile';
     screens?: string[];
     screenTitles?: string[];
 }
@@ -109,7 +111,7 @@ const Projects = () => {
                 </div>
             </div>
 
-            {/* Mockup Zoom & Animated Fanning Lightbox */}
+            {/* Mockup Zoom & Animated Lightbox */}
             <AnimatePresence>
                 {selectedProject && (
                     <motion.div
@@ -139,10 +141,18 @@ const Projects = () => {
                         >
                             <div className="relative flex-1 overflow-hidden bg-zinc-950 flex items-center justify-center p-4 md:p-6 min-h-[460px]">
                                 {selectedProject.screens && selectedProject.screens.length >= 3 ? (
-                                    <MultiPhoneMockup
-                                        screens={selectedProject.screens}
-                                        titles={selectedProject.screenTitles}
-                                    />
+                                    selectedProject.screenType === 'web' || (selectedProject.category === 'Web Application' && selectedProject.screens.length >= 2) ? (
+                                        <MultiWebMockup
+                                            screens={selectedProject.screens}
+                                            titles={selectedProject.screenTitles}
+                                            url={selectedProject.link ? selectedProject.link.replace(/^https?:\/\//, '').replace(/\/$/, '') : 'task-tracker.muzzie.my.id'}
+                                        />
+                                    ) : (
+                                        <MultiPhoneMockup
+                                            screens={selectedProject.screens}
+                                            titles={selectedProject.screenTitles}
+                                        />
+                                    )
                                 ) : (
                                     <img
                                         src={selectedProject.image}
